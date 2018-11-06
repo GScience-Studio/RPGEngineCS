@@ -30,7 +30,6 @@ namespace RPGEngine
             Window.AllowUserResizing = false;
             Window.Title = "RPGEngine";
             graphics.IsFullScreen = false;
-            SceneManager.SwitchTo<MainMenu>();
         }
 
         /// <summary>
@@ -42,6 +41,7 @@ namespace RPGEngine
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            SceneManager.SwitchTo<MainMenu>();
             base.Initialize();
         }
 
