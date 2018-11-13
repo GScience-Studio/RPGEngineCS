@@ -4,21 +4,21 @@ namespace RPGEngine.Scenes
 {
     public class SceneManager
     {
-        private static IScene _scene;
+        public static Scene Scene { get; private set; }
 
-        public static void SwitchTo<T>() where T : IScene, new()
+        public static void SwitchTo<T>() where T : Scene, new()
         {
-            _scene = new T();
+            Scene = new T();
         }
 
         public static void Draw(SpriteBatch batch)
         {
-            _scene?.Draw(batch);
+            Scene?.Draw(batch);
         }
 
         public static void Update(double deltaTime)
         {
-            _scene?.Update(deltaTime);
+            Scene?.Update(deltaTime);
         }
     }
 }

@@ -5,27 +5,42 @@ using RPGEngine.UI.UIComponent;
 
 namespace RPGEngine.Scenes
 {
-    public class MainMenu : IScene
+    public class MainMenu : Scene
     {
-        private MainMenuUILayer _uiLayer = new MainMenuUILayer();
-        public void Draw(SpriteBatch batch)
+        public MainMenu()
         {
-            _uiLayer.Draw(batch);
+            OpenUILayer<MainMenuUILayer>();
         }
 
-        public void Update(double deltaTime)
+        public override void Draw(SpriteBatch batch)
         {
+            base.Draw(batch);
+        }
+
+        public override void Update(double deltaTime)
+        {
+            base.Update(deltaTime);
             //throw new NotImplementedException();
         }
     }
 
-    public class MainMenuUILayer : UILayerBase
+    public class MainMenuUILayer : UILayer
     {
+        private UIImage _img;
+
         public MainMenuUILayer()
         {
             Position = new Vector2(25, 25);
-            var image = AddChild<UIImage>();
-            image.Load("Icon");
+            _img = AddChild<UIImage>();
+            _img.Load("Icon");
+        }
+
+        public override void Update(double deltaTime)
+        {
+            base.Update(deltaTime);
+            var result = TouchInput.IsDrag();
+            if (result)
+                _img.Position = result.Pos.ToVector2();
         }
     }
 }

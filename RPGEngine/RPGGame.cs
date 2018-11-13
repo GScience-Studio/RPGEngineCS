@@ -1,5 +1,6 @@
 ﻿#region Using Statements
 
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -26,10 +27,32 @@ namespace RPGEngine
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferWidth = 960;
             graphics.PreferredBackBufferHeight = 540;
+            graphics.ApplyChanges();
+            IsMouseVisible = true;
             Window.AllowAltF4 = false;
             Window.AllowUserResizing = false;
             Window.Title = "RPGEngine";
             graphics.IsFullScreen = false;
+        }
+
+        public static T GetContent<T>(string name)
+        {
+            return Game.Content.Load<T>(name);
+        }
+
+        public static Rectangle GetClientBounds()
+        {
+            return Game.Window.ClientBounds;
+        }
+
+        protected override void OnActivated(object sender, EventArgs args)
+        {
+            base.OnActivated(sender, args);
+        }
+
+        protected override void OnDeactivated(object sender, EventArgs args)
+        {
+            base.OnDeactivated(sender, args);
         }
 
         /// <summary>
@@ -40,9 +63,15 @@ namespace RPGEngine
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-            SceneManager.SwitchTo<MainMenu>();
             base.Initialize();
+            TouchInput.Initialize();
+
+            // TODO: Add your initialization logic here
+        }
+
+        protected override bool BeginDraw()
+        {
+            return base.BeginDraw();
         }
 
         /// <summary>
@@ -64,6 +93,12 @@ namespace RPGEngine
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            if (!IsActive)
+                return;
+
+            if (SceneManager.Scene == null)
+                SceneManager.SwitchTo<MainMenu>();
+
             // For Mobile devices, this logic will close the Game when the Back button is pressed
             // Exit() is obsolete on iOS
 #if !__IOS__ && !__TVOS__
