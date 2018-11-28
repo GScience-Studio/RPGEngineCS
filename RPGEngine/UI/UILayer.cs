@@ -32,11 +32,9 @@ namespace RPGEngine.UI
             foreach (var component in Children)
                 component.Update(deltaTime);
 
-            var result = TouchInput.IsTap();
-
-            if (result)
+            if (TouchInput.IsClick)
                 foreach (var component in Children)
-                    component.OnPressDown(result.Pos);
+                    component.OnPressDown(TouchInput.Position);
         }
     }
 }

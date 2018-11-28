@@ -47,7 +47,7 @@ namespace RPGEngine.UI
         public abstract void Draw(SpriteBatch batch);
         public abstract void Update(double deltaTime);
 
-        public virtual void OnPressDown(Point pos)
+        public virtual void OnPressDown(Vector2 pos)
         {
             foreach (var child in Children)
                 child.OnPressDown(pos);

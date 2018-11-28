@@ -13,7 +13,7 @@ namespace RPGEngine.UI.UIComponent
             Rect = new Rectangle(new Point(0, 0), RPGGame.GetClientBounds().Size);
         }
 
-        public override void OnPressDown(Point pos)
+        public override void OnPressDown(Vector2 pos)
         {
             foreach (var child in Children)
                 if (!child.GetType().IsAssignableFrom(typeof(UIComponent)))

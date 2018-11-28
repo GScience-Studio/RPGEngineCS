@@ -9,7 +9,7 @@
     <Import_RootNamespace>RPGEngine</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)TouchInput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RPGGame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\MainMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\Scene.cs" />

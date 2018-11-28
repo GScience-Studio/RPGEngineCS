@@ -1,5 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using RPGEngine.UI;
 using RPGEngine.UI.UIComponent;
 
@@ -38,9 +40,8 @@ namespace RPGEngine.Scenes
         public override void Update(double deltaTime)
         {
             base.Update(deltaTime);
-            var result = TouchInput.IsDrag();
-            if (result)
-                _img.Position = result.Pos.ToVector2();
+            if (TouchInput.IsClick)
+                _img.Position = TouchInput.Position;
         }
     }
 }

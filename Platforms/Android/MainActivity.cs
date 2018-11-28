@@ -14,7 +14,9 @@ namespace Android
         {
             base.OnCreate(savedInstanceState);
 
-            // Set our view from the "main" layout resource
+            RequestedOrientation = ScreenOrientation.Landscape;
+            RequestWindowFeature(WindowFeatures.NoTitle);
+            Window.SetFlags(WindowManagerFlags.Fullscreen, WindowManagerFlags.Fullscreen);
             var rpgGame = new RPGGame();
             SetContentView(rpgGame.Services.GetService<View>());
             rpgGame.Run();

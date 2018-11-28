@@ -4,6 +4,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Input.Touch;
 using RPGEngine.Scenes;
 
 #endregion
@@ -25,10 +26,14 @@ namespace RPGEngine
             Game = this;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            TouchPanel.EnableMouseTouchPoint = true;
+
+            IsMouseVisible = true;
+
             graphics.PreferredBackBufferWidth = 960;
             graphics.PreferredBackBufferHeight = 540;
             graphics.ApplyChanges();
-            IsMouseVisible = true;
+
             Window.AllowAltF4 = false;
             Window.AllowUserResizing = false;
             Window.Title = "RPGEngine";
