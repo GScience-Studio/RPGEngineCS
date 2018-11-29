@@ -19,12 +19,8 @@ namespace RPGEngine.UI
 
         public override void Draw(SpriteBatch batch)
         {
-            batch.Begin();
-
-            foreach (var component in Children)
-                component.Draw(batch);
-
-            batch.End();
+            foreach (var child in Children)
+                child.Draw(batch);
         }
 
         public override void Update(double deltaTime)
@@ -32,9 +28,9 @@ namespace RPGEngine.UI
             foreach (var component in Children)
                 component.Update(deltaTime);
 
-            if (TouchInput.IsClick)
+            if (Input.IsClick)
                 foreach (var component in Children)
-                    component.OnPressDown(TouchInput.Position);
+                    component.OnPressDown(Input.Position);
         }
     }
 }

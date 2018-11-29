@@ -9,7 +9,7 @@ namespace RPGEngine
     /// <summary>
     /// 获取用户点击状态
     /// </summary>
-    public static class TouchInput
+    public static class Input
     {
         /// <summary>
         /// 上一次检测时的状态
@@ -77,7 +77,8 @@ namespace RPGEngine
                 if (!RPGGame.Game.IsActive)
                     return false;
 
-                return _touchLocation.State == TouchLocationState.Pressed;
+                return _touchLocation.State == TouchLocationState.Pressed ||
+                       _touchLocation.State == TouchLocationState.Moved;
             }
         }
 
@@ -118,13 +119,13 @@ namespace RPGEngine
             }
         }
 
-        public static Vector2 Position
+        public static Point Position
         {
             get
             {
                 Update();
                 
-                return _useMouse ? _nowMouseState.Position.ToVector2() : _touchLocation.Position;
+                return _useMouse ? _nowMouseState.Position : _touchLocation.Position.ToPoint();
             }
         }
     }

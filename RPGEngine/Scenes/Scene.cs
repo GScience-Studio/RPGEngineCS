@@ -4,6 +4,11 @@ using RPGEngine.UI;
 
 namespace RPGEngine.Scenes
 {
+    /// <summary>
+    /// 场景类\n
+    /// 在一个场景中，有一个UI层表，根据UI层打开的顺序不同会有不同的显示顺序，而且上层UI层会影响下层UI层\n
+    /// 注意：只有顶层UI层会接受事件和刷新！
+    /// </summary>
     public abstract class Scene
     {
         private readonly List<UILayer> _uiLayerList = new List<UILayer>();
@@ -23,14 +28,18 @@ namespace RPGEngine.Scenes
 
         public virtual void Draw(SpriteBatch batch)
         {
-            if (_uiLayerList.Count != 0)
-                _uiLayerList[_uiLayerList.Count - 1].Draw(batch);
+            batch.Begin();
+
+            for (var i = _uiLayerList.Count - 1; i >= 0; --i)
+                _uiLayerList[i].Draw(batch);
+
+            batch.End();
         }
 
         public virtual void Update(double deltaTime)
         {
-            if (_uiLayerList.Count != 0)
-                _uiLayerList[_uiLayerList.Count - 1].Update(deltaTime);
+            for (var i = _uiLayerList.Count - 1; i >= 0; --i)
+                _uiLayerList[i].Update(deltaTime);
         }
     }
 }

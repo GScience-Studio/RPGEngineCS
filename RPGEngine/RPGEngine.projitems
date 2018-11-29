@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\MainMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\Scene.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\SceneManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UI\UIComponent\UIBottom.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\UIComponent\UIComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\UIComponent\UIImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\UILayer.cs" />

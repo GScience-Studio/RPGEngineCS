@@ -6,14 +6,14 @@ namespace RPGEngine.UI
 {
     public abstract class UINode
     {
-        private Vector2 _pos;
+        private Point _pos;
 
         protected UINode()
         {
             Children = new List<UINode>();
         }
 
-        public Vector2 Position
+        public Point Position
         {
             get => _pos;
             set
@@ -25,6 +25,12 @@ namespace RPGEngine.UI
 
                 _pos = value;
             }
+        }
+
+        public Point LocalPos
+        {
+            get => _pos - Parent.Position;
+            set => Position = value + Parent.Position;
         }
 
         public List<UINode> Children { get; }
@@ -47,7 +53,18 @@ namespace RPGEngine.UI
         public abstract void Draw(SpriteBatch batch);
         public abstract void Update(double deltaTime);
 
-        public virtual void OnPressDown(Vector2 pos)
+        public virtual void OnPressDown(Point pos)
+        {
+            foreach (var child in Children)
+                child.OnPressDown(pos);
+        }
+
+        public virtual void OnReleaseUp(Point pos)
+        {
+            foreach (var child in Children)
+                child.OnPressDown(pos);
+        }
+        public virtual void OnClick(Point pos)
         {
             foreach (var child in Children)
                 child.OnPressDown(pos);

@@ -17,6 +17,7 @@ namespace Android
             RequestedOrientation = ScreenOrientation.Landscape;
             RequestWindowFeature(WindowFeatures.NoTitle);
             Window.SetFlags(WindowManagerFlags.Fullscreen, WindowManagerFlags.Fullscreen);
+            
             var rpgGame = new RPGGame();
             SetContentView(rpgGame.Services.GetService<View>());
             rpgGame.Run();

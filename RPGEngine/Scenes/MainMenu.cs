@@ -13,35 +13,17 @@ namespace RPGEngine.Scenes
         {
             OpenUILayer<MainMenuUILayer>();
         }
-
-        public override void Draw(SpriteBatch batch)
-        {
-            base.Draw(batch);
-        }
-
-        public override void Update(double deltaTime)
-        {
-            base.Update(deltaTime);
-            //throw new NotImplementedException();
-        }
     }
 
     public class MainMenuUILayer : UILayer
     {
-        private UIImage _img;
+        private UIBottom _btm;
 
         public MainMenuUILayer()
         {
-            Position = new Vector2(25, 25);
-            _img = AddChild<UIImage>();
-            _img.Load("Icon");
-        }
-
-        public override void Update(double deltaTime)
-        {
-            base.Update(deltaTime);
-            if (TouchInput.IsClick)
-                _img.Position = TouchInput.Position;
+            Position = new Point(25, 25);
+            _btm = AddChild<UIBottom>();
+            _btm.Background.Load("Icon");
         }
     }
 }

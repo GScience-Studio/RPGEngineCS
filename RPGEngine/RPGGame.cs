@@ -26,10 +26,10 @@ namespace RPGEngine
             Game = this;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            TouchPanel.EnableMouseTouchPoint = true;
 
             IsMouseVisible = true;
 
+#if WINDOWS
             graphics.PreferredBackBufferWidth = 960;
             graphics.PreferredBackBufferHeight = 540;
             graphics.ApplyChanges();
@@ -38,6 +38,9 @@ namespace RPGEngine
             Window.AllowUserResizing = false;
             Window.Title = "RPGEngine";
             graphics.IsFullScreen = false;
+#else
+            graphics.IsFullScreen = true;
+#endif
         }
 
         public static T GetContent<T>(string name)
@@ -69,7 +72,7 @@ namespace RPGEngine
         protected override void Initialize()
         {
             base.Initialize();
-            TouchInput.Initialize();
+            Input.Initialize();
 
             // TODO: Add your initialization logic here
         }

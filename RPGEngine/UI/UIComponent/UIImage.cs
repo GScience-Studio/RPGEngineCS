@@ -5,20 +5,44 @@ namespace RPGEngine.UI.UIComponent
 {
     public class UIImage : UIComponent
     {
+        /// <summary>
+        /// 背景颜色
+        /// </summary>
+        public Color Background;
+
+        /// <summary>
+        /// 背景图像
+        /// </summary>
+        public Texture2D BackgroundImage;
+
+        /// <summary>
+        /// 绘制
+        /// </summary>
+        /// <param name="batch"></param>
         public override void Draw(SpriteBatch batch)
         {
-            if (Image != null)
-                batch.Draw(Image, null,
-                    new Rectangle(Rect.X + (int) Position.X, Rect.Y + (int) Position.Y, Rect.Width, Rect.Height));
+            if (BackgroundImage != null)
+                batch.Draw(BackgroundImage, destinationRectangle: Rect);
+            else
+            {
+                batch.Draw(null, Rect, Background);
+            }
         }
 
+        public UIImage()
+        {
+        }
         public override void Update(double deltaTime)
         {
         }
 
+        /// <summary>
+        /// 加载图像
+        /// </summary>
+        /// <param name="name">资源名称</param>
         public void Load(string name)
         {
-            Image = RPGGame.GetContent<Texture2D>(name);
+            BackgroundImage = RPGGame.GetContent<Texture2D>(name);
         }
     }
 }
