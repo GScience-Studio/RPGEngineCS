@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
-using RPGEngine.Content;
 using RPGEngine.Scenes;
 
 #endregion
@@ -40,6 +39,8 @@ namespace RPGEngine
             graphics.IsFullScreen = false;
 #else
             graphics.IsFullScreen = true;
+            graphics.PreferredBackBufferWidth = GetClientBounds().Width;
+            graphics.PreferredBackBufferHeight = GetClientBounds().Height;
 #endif
         }
 
@@ -100,10 +101,7 @@ namespace RPGEngine
                 return;
 
             if (SceneManager.Scene == null)
-            {
-                ContentManager.Initialize();
                 SceneManager.SwitchTo<MainMenu>();
-            }
 
             // For Mobile devices, this logic will close the Game when the Back button is pressed
             // Exit() is obsolete on iOS

@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using RPGEngine.Content;
 
 namespace RPGEngine.UI.UIComponent
 {
@@ -39,7 +38,7 @@ namespace RPGEngine.UI.UIComponent
         /// <param name="name">资源名称</param>
         public void Load(string name)
         {
-            BackgroundImage = ContentManager.Get<Texture2D>(name);
+            BackgroundImage = RPGGame.Game.Content.Load<Texture2D>(name);
         }
     }
 }
