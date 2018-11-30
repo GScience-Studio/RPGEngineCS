@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using RPGEngine.Content;
 
 namespace RPGEngine.UI.UIComponent
 {
@@ -8,7 +9,7 @@ namespace RPGEngine.UI.UIComponent
         /// <summary>
         /// 背景颜色
         /// </summary>
-        public Color Background;
+        public Color Background = Color.White;
 
         /// <summary>
         /// 背景图像
@@ -22,11 +23,7 @@ namespace RPGEngine.UI.UIComponent
         public override void Draw(SpriteBatch batch)
         {
             if (BackgroundImage != null)
-                batch.Draw(BackgroundImage, destinationRectangle: Rect);
-            else
-            {
-                batch.Draw(null, Rect, Background);
-            }
+                batch.Draw(BackgroundImage, Rect, Background);
         }
 
         public UIImage()
@@ -42,7 +39,7 @@ namespace RPGEngine.UI.UIComponent
         /// <param name="name">资源名称</param>
         public void Load(string name)
         {
-            BackgroundImage = RPGGame.GetContent<Texture2D>(name);
+            BackgroundImage = ContentManager.Get<Texture2D>(name);
         }
     }
 }

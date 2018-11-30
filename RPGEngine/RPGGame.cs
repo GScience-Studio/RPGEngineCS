@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
+using RPGEngine.Content;
 using RPGEngine.Scenes;
 
 #endregion
@@ -28,7 +29,6 @@ namespace RPGEngine
             Content.RootDirectory = "Content";
 
             IsMouseVisible = true;
-
 #if WINDOWS
             graphics.PreferredBackBufferWidth = 960;
             graphics.PreferredBackBufferHeight = 540;
@@ -41,11 +41,6 @@ namespace RPGEngine
 #else
             graphics.IsFullScreen = true;
 #endif
-        }
-
-        public static T GetContent<T>(string name)
-        {
-            return Game.Content.Load<T>(name);
         }
 
         public static Rectangle GetClientBounds()
@@ -91,7 +86,7 @@ namespace RPGEngine
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            //TODO: use this.Content to load your game content here 
+            //TODO: use this.ContentManager to load your game content here 
         }
 
         /// <summary>
@@ -105,7 +100,10 @@ namespace RPGEngine
                 return;
 
             if (SceneManager.Scene == null)
+            {
+                ContentManager.Initialize();
                 SceneManager.SwitchTo<MainMenu>();
+            }
 
             // For Mobile devices, this logic will close the Game when the Back button is pressed
             // Exit() is obsolete on iOS
