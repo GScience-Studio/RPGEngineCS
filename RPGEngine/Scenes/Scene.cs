@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
+using RPGEngine.Dialog;
 using RPGEngine.UI;
 
 namespace RPGEngine.Scenes
@@ -30,8 +31,8 @@ namespace RPGEngine.Scenes
         {
             batch.Begin();
 
-            for (var i = _uiLayerList.Count - 1; i >= 0; --i)
-                _uiLayerList[i].Draw(batch);
+            foreach (var uiLayer in _uiLayerList)
+                uiLayer.Draw(batch);
 
             batch.End();
         }

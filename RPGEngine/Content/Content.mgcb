@@ -6,12 +6,32 @@
 /platform:Windows
 /config:
 /profile:Reach
-/compress:False
+/compress:True
 
 #-------------------------------- References --------------------------------#
 
+/reference:..\..\RSL.dll
 
 #---------------------------------- Content ---------------------------------#
+
+#begin DialogElement/Background.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:DialogElement/Background.png
+
+#begin Font/MessageBox.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Font/MessageBox.spritefont
 
 #begin Icon.png
 /importer:TextureImporter
@@ -24,4 +44,9 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Icon.png
+
+#begin Text/MessageBox.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Text/MessageBox.xml
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XnaContent>
+	<Asset Type="TextDictionary">
+        <Text>
+			<Item>
+				<Key>test</Key>
+				<Value>这是一个测试用的对话框，用来测试自动加载字体</Value>
+			</Item>
+		</Text>
+	</Asset>
+</XnaContent>

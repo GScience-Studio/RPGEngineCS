@@ -9,6 +9,8 @@
     <Import_RootNamespace>RPGEngine</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Dialog\Dialog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dialog\MessageBox.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Input.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RPGGame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\MainMenu.cs" />
@@ -17,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)UI\UIComponent\UIBottom.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\UIComponent\UIComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\UIComponent\UIImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UI\UIComponent\UILabel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\UILayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\UINode.cs" />
   </ItemGroup>
