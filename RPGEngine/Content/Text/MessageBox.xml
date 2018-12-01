@@ -4,7 +4,7 @@
         <Text>
 			<Item>
 				<Key>test</Key>
-				<Value>这是一个测试用的对话框，用来测试自动加载字体</Value>
+				<Value>测试，支持自动刷新文字</Value>
 			</Item>
 		</Text>
 	</Asset>
