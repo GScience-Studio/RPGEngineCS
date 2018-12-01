@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("RSL")]
+[assembly: AssemblyTitle("RPGTextRes")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("RSL")]
+[assembly: AssemblyProduct("RPGTextRes")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("034ef5ba-4d41-46d8-93ec-0879d740fee2")]
+[assembly: Guid("ff714843-f4f3-4b07-83e6-9d4734110b72")]
 
 // 程序集的版本信息由下列四个值组成: 
 //

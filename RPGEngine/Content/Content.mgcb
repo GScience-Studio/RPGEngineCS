@@ -10,8 +10,6 @@
 
 #-------------------------------- References --------------------------------#
 
-/reference:..\..\RSL.dll
-/reference:..\..\ContentExtension.dll
 
 #---------------------------------- Content ---------------------------------#
 
@@ -29,7 +27,9 @@
 
 #begin Font/MessageBox.spritefont
 /importer:FontDescriptionImporter
-/processor:AutoFontProcesser
+/processor:LocalizedFontProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
 /build:Font/MessageBox.spritefont
 
 #begin Icon.png
@@ -43,9 +43,4 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Icon.png
-
-#begin Text/MessageBox.xml
-/importer:XmlImporter
-/processor:PassThroughProcessor
-/build:Text/MessageBox.xml
 

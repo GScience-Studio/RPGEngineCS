@@ -134,9 +134,9 @@
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\RSL\RSL.csproj">
-      <Project>{034ef5ba-4d41-46d8-93ec-0879d740fee2}</Project>
-      <Name>RSL</Name>
+    <ProjectReference Include="..\..\RPGTextRes\RPGTextRes.csproj">
+      <Project>{ff714843-f4f3-4b07-83e6-9d4734110b72}</Project>
+      <Name>RPGTextRes</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\..\RPGEngine\RPGEngine.projitems" Label="Shared" />

@@ -16,7 +16,7 @@ namespace RPGEngine.Dialog
             {
                 AddChild<UIImage>().BackgroundImage = RPGGame.Game.Content.Load<Texture2D>("DialogElement/Background");
                 var label = AddChild<UILabel>();
-                label.TextResKey = "Text/MessageBox:test";
+                label.Text = RPGTextRes.MessageBox.Test;
                 label.FontName = "Font/MessageBox";
             }
         }
